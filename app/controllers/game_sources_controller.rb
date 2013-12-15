@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class GameSourcesController < ApplicationController
   # GET /game_sources
   # GET /game_sources.json

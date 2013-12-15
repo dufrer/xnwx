@@ -4,6 +4,8 @@ Xnwx::Application.routes.draw do
   resources :games
   resources :game_sources
 
+  resources :bells
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

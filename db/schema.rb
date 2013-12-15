@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131202074135) do
+ActiveRecord::Schema.define(:version => 20131215085904) do
+
+  create_table "bells", :force => true do |t|
+    t.string   "name"
+    t.string   "zone"
+    t.string   "file_location"
+    t.integer  "file_size"
+    t.integer  "broadcast_time"
+    t.string   "singer"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "game_sources", :force => true do |t|
     t.integer  "game_id"

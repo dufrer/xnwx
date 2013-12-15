@@ -35,3 +35,7 @@ gem 'magic_encoding'
 gem 'thin'
 
 gem 'nokogiri'
+
+gem 'carrierwave'
+gem 'simple_form'
+gem "twitter-bootstrap-rails"
