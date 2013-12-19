@@ -1,0 +1,49 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+zh:
+  enumerize:
+    bell:
+      zone:
+        zh: "华语"
+        en: "英文"
+  xnwx_title: 小牛无线铃声
+  xnwx_homepage_title: 小牛无线铃声管理后台
+  action_lables: &action_lables
+    new: 新建
+    edit: 编辑
+    destroy: 删除
+    show: 查看详细
+    export: 导出数据
+    search: 搜索
+    list: 全部列表
+  helpers:
+    actions: 操作
+    links:
+      new: 新建
+      edit: 编辑
+      destroy: 删除
+      back: 返回
+      show: 详细
+      export: 导出数据
+      search: 搜索
+      list: 全部列表
+  bell:
+    <<: *action_lables
+  activerecord:
+    models:
+    attributes:
+      bell:
+        name: 名称
+        zone: 地区
+        file_location: 存储路径
+        file_size: 文件大小
+        broadcast_time: 播放时长
+        singer: 歌手
+        bell: 铃声
+        created_at: 创建时间
+  simple_form:
+    required:
+      html: '<span title="required">*</span>'
+    labels:
+      theme_activity:
