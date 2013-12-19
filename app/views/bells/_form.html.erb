@@ -1,17 +1,13 @@
-<%= form_for(@bell) do |f| %>
-  <% if @bell.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@bell.errors.count, "error") %> prohibited this bell from being saved:</h2>
-
-      <ul>
-      <% @bell.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
+<%= simple_form_for @bell, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :zone , :as => :select  , :prompt => false , :allow_blank=>false %>
+  <%= f.input :file_location %>
+  <%= f.input :file_size %>
+  <%= f.input :broadcast_time %>
+  <%= f.input :singer %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                bells_path, :class => 'btn' %>
   </div>
 <% end %>

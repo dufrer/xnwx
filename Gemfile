@@ -38,4 +38,14 @@ gem 'nokogiri'
 
 gem 'carrierwave'
 gem 'simple_form'
+
+# ruby racer for less-rails
+gem 'therubyracer'
+gem "less-rails"
 gem "twitter-bootstrap-rails"
+
+gem 'devise'
+
+gem 'kaminari'
+
+gem 'enumerize'

@@ -11,3 +11,12 @@
  *= require_self
  *= require_tree .
  */
+span.error
+{
+	color: #FF0000;
+}
+
+span.success
+{
+	color: #316309;
+}
