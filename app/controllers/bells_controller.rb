@@ -45,7 +45,7 @@ class BellsController < ApplicationController
 
     respond_to do |format|
       if @bell.save
-        format.html { redirect_to @bell, notice: 'Bell was successfully created.' }
+        format.html { redirect_to @bell, notice: ' 铃声创建成功.' }
         format.json { render json: @bell, status: :created, location: @bell }
       else
         format.html { render action: "new" }
@@ -61,7 +61,7 @@ class BellsController < ApplicationController
 
     respond_to do |format|
       if @bell.update_attributes(params[:bell])
-        format.html { redirect_to @bell, notice: 'Bell was successfully updated.' }
+        format.html { redirect_to @bell, notice: ' 铃声更新成功.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

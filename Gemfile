@@ -49,3 +49,8 @@ gem 'devise'
 gem 'kaminari'
 
 gem 'enumerize'
+
+#gem 'streamio-ffmpeg'
+gem 'web_video'
+
+gem 'mediainfo'

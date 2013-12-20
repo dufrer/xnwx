@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 class BellUploader < CarrierWave::Uploader::Base
 

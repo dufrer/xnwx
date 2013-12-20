@@ -11,17 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131215085904) do
+ActiveRecord::Schema.define(:version => 20131220084518) do
+
+  create_table "bell_tags", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "bell_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "bell_tags", ["bell_id"], :name => "index_bell_tags_on_bell_id"
+  add_index "bell_tags", ["tag_id"], :name => "index_bell_tags_on_tag_id"
 
   create_table "bells", :force => true do |t|
     t.string   "name"
     t.string   "zone"
     t.string   "file_location"
     t.integer  "file_size"
-    t.integer  "broadcast_time"
+    t.string   "duration"
     t.string   "singer"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "game_sources", :force => true do |t|
@@ -37,6 +47,12 @@ ActiveRecord::Schema.define(:version => 20131215085904) do
   create_table "games", :force => true do |t|
     t.string   "match_date"
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

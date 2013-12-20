@@ -10,7 +10,7 @@
       <th><%= model_class.human_attribute_name(:zone) %></th>
       <th><%= model_class.human_attribute_name(:file_location) %></th>
       <th><%= model_class.human_attribute_name(:file_size) %></th>
-      <th><%= model_class.human_attribute_name(:broadcast_time) %></th>
+      <th><%= model_class.human_attribute_name(:duration) %></th>
       <th><%= model_class.human_attribute_name(:singer) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -24,7 +24,7 @@
         <td><%= bell.zone %></td>
         <td><%= bell.file_location %></td>
         <td><%= bell.file_size %></td>
-        <td><%= bell.broadcast_time %></td>
+        <td><%= bell.duration %></td>
         <td><%= bell.singer %></td>
         <td><%=l bell.created_at %></td>
         <td>

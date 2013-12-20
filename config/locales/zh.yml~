@@ -30,18 +30,24 @@ zh:
       list: 全部列表
   bell:
     <<: *action_lables
+  tag:
+    <<: *action_lables
   activerecord:
     models:
+      bell: 铃声
+      tag: 标签
     attributes:
       bell:
         name: 名称
         zone: 地区
         file_location: 存储路径
         file_size: 文件大小
-        broadcast_time: 播放时长
+        duration: 播放时长
         singer: 歌手
         bell: 铃声
         created_at: 创建时间
+      tag:
+        title: 名称
   simple_form:
     required:
       html: '<span title="required">*</span>'

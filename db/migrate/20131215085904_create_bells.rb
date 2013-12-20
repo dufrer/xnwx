@@ -6,7 +6,7 @@ class CreateBells < ActiveRecord::Migration
       t.string :zone
       t.string :file_location
       t.integer :file_size
-      t.integer :broadcast_time
+      t.string :duration
       t.string :singer
 
       t.timestamps
