@@ -1,13 +1,27 @@
 # -*- encoding : utf-8 -*-
-class BellsController < ApplicationController
+class BellsController < InheritedResources::Base
   # GET /bells
   # GET /bells.json
+  #has_scope :search , :only => [:index] ,:type => :hash, :default => {:zone=>"zh"}
   def index
-    @bells = Bell.all
+    @bells = Bell.search(params[:search]||{}).page(params[:page]).per(params[:per]||3)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @bells }
+      format.json { render json: 
+        @bells.collect{|b|
+          tmp_arr = {}
+          tmp_arr['tag_names']= b.tags.pluck(:title)
+          tmp_arr['created_at'] = b.created_at.to_s
+          tmp_arr['id']= b.id
+          tmp_arr['name']= b.name
+          tmp_arr['file_location']="http://115.29.151.9/"+b.file_location.to_s
+          tmp_arr['file_size']=b.file_size
+          tmp_arr['duration']=b.duration
+          tmp_arr['singer']=b.singer
+          tmp_arr 
+        } 
+      }
     end
   end
 

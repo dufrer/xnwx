@@ -16,6 +16,7 @@
 
 # -*- encoding : utf-8 -*-
 class Bell < ActiveRecord::Base
+  attr_accessor :tag_names
   attr_accessible :duration, :file_location, :file_size, :name, :singer, :zone,:tag_ids
   validates :name,:presence => true, :allow_blank => false
   validates :file_size,:presence => true, :allow_blank => false,:numericality => true,:on=>:update 
@@ -48,5 +49,15 @@ class Bell < ActiveRecord::Base
   enumerize :zone, in: [:zh, :en], default: "zh", scope: true
 
   mount_uploader :file_location, BellUploader
+
+  scope :search , lambda{|params|
+    includes(:bell_tags).where{
+      conds = []
+      conds << ( zone.eq params[:zone] ) if params[:zone].present?
+      #conds << ( bell_tags.bell_id >>  Tag.where(:title => params[:tag_name] )) if params[:tag_name].present?
+      conds << ( bell_tags.tag_id.eq params[:tag_id] ) if params[:tag_id].present?
+      conds.inject{| conds_total , con |  conds_total &= con }
+    }
+  }
 
 end

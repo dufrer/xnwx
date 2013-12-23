@@ -1,11 +1,20 @@
 <%- model_class = Bell -%>
+<%- params[:search] ||= {} %>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+<div class="well">
+  <%= simple_form_for( collection_path, html: { :method => :get, class: 'form-search' } ) do |f| %>
+    <%= select_tag "search[tag_id]" , 
+    options_from_collection_for_select(Tag.select("id,title"),"id","title",params[:search][:tag_id]), :class => 'span2' ,:prompt => "请选择" %>
+    <%= select_tag "search[zone]" , options_for_select(resource_class.zone.options,params[:search][:zone]), :class => 'span2' ,:prompt => "请选择" %>
+    <%= f.submit '搜索', :class => 'btn'%>
+  <% end  %>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <!-- <th><%= model_class.human_attribute_name(:id) %></th> -->
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:zone) %></th>
       <th><%= model_class.human_attribute_name(:file_location) %></th>
@@ -19,8 +28,8 @@
   <tbody>
     <% @bells.each do |bell| %>
       <tr>
-        <td><%= link_to bell.id, bell_path(bell) %></td>
-        <td><%= bell.name %></td>
+        <!-- <td><%= link_to bell.id, bell_path(bell) %></td> -->
+        <td><%=link_to bell.name, bell_path(bell) %></td>
         <td><%= bell.zone %></td>
         <td><%= bell.file_location %></td>
         <td><%= bell.file_size %></td>
@@ -28,6 +37,8 @@
         <td><%= bell.singer %></td>
         <td><%=l bell.created_at %></td>
         <td>
+          <%#= link_to t('.show', :default => t("helpers.links.show")),
+                       bell_path(bell) , :class => 'btn btn-mini' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_bell_path(bell), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -40,6 +51,8 @@
     <% end %>
   </tbody>
 </table>
+
+<%= paginate @bells %>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_bell_path,

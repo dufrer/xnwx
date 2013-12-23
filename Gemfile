@@ -54,3 +54,7 @@ gem 'enumerize'
 gem 'web_video'
 
 gem 'mediainfo'
+
+gem "squeel"
+gem 'has_scope'
+gem 'inherited_resources'
