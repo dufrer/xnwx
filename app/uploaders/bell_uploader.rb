@@ -39,14 +39,14 @@ class BellUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
-    %w(jpg jpeg gif png mp3)
+    %w(mp3 wmv)
   end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #    Time.now.to_i.to_s + SecureRandom.hex(4) if original_filename
-  #    #{}"something.jpg" if original_filename
-  # end
+  def filename
+     Time.now.to_i.to_s + SecureRandom.hex(4) + File.extname(super).downcase if original_filename
+     #{}"something.jpg" if original_filename
+  end
 
 end
