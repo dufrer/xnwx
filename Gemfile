@@ -62,3 +62,5 @@ gem 'has_scope'
 gem 'inherited_resources'
 
 gem "pg"
+
+gem 'bootstrap_helper'
