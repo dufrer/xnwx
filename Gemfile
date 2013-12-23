@@ -4,8 +4,10 @@ gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+group :development do 
+	gem 'sqlite3'
+end 
 
-gem 'sqlite3'
 
 
 # Gems used only for assets and not required
@@ -58,3 +60,5 @@ gem 'mediainfo'
 gem "squeel"
 gem 'has_scope'
 gem 'inherited_resources'
+
+gem "pg"
