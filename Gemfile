@@ -44,7 +44,7 @@ gem 'simple_form'
 # ruby racer for less-rails
 gem 'therubyracer'
 gem "less-rails"
-gem "twitter-bootstrap-rails", "2.1.3"
+gem "twitter-bootstrap-rails"#, "2.1.3"
 
 gem 'devise'
 
@@ -63,4 +63,4 @@ gem 'inherited_resources'
 
 gem "pg"
 
-gem 'bootstrap_helper'
+#gem 'bootstrap_helper'
